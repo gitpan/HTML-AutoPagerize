@@ -1,0 +1,17 @@
+abstract: Utility to load AutoPagerize SITEINFO stuff
+author: Tatsuhiko Miyagawa <miyagawa@bulknews.net>
+build_requires: 
+  Test::More: 0
+distribution_type: module
+generated_by: Module::Install version 0.64
+license: perl
+name: HTML-AutoPagerize
+no_index: 
+  directory: 
+    - inc
+    - t
+requires: 
+  HTML::TreeBuilder::XPath: 0
+  URI: 0
+  perl: 5.8.1
+version: 0.01
