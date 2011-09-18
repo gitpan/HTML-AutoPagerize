@@ -2,7 +2,7 @@ package HTML::AutoPagerize;
 
 use strict;
 use 5.8.1;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Carp;
 use HTML::TreeBuilder::XPath;
@@ -17,6 +17,11 @@ sub sites {
     my $self = shift;
     $self->{sites} = shift if @_;
     $self->{sites};
+}
+
+sub sorted_sites {
+    my $self = shift;
+    return [ sort { length $b->{url} <=> length $a->{url} } @{ $self->sites } ];
 }
 
 sub add_site {
@@ -59,7 +64,7 @@ sub handle {
 sub site_info_for {
     my($self, $uri) = @_;
 
-    for my $site (@{ $self->sites }) {
+    for my $site (@{ $self->sorted_sites }) {
         if ($uri =~ $site->{url}) {
             return $site;
         }
